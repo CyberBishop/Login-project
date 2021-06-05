@@ -70,39 +70,36 @@ def sizeof_fmt(num, suffix='B'):
         num /= 1024.0
     return "%.1f%s%s" % (num, 'Yi', suffix)
 
-def main():
-    b()
-    tree = int(input('''
-    1.) Login
-    2.) Logout
-    3.) Status \n:--> '''))
-    b()
+b()
+tree = int(input('''
+1.) Login
+2.) Logout
+3.) Status \n:--> '''))
+b()
 
-    if tree == 1:
-        try:
-            print(".*"*30)
-            print("-"*60)
-            username = input("username:--> ")
-            print("-"*60)
-            password = getpass.getpass("Enter Password:--> ")
-            check_login(carryon(log_in('http://172.16.2.254/login')))
-        except:
-            print('network issues')
-    elif tree == 2:
-        try:
-            logout("http://172.16.2.254/logout")
-        except:
-            print('are you connected to the internet')
-    elif tree == 3:
-        try:
-            print("your remaininig quota is: ")
-            print(pull_quota('http://172.16.2.254/status'))
-            b()
-        except:
-            print("Are you connected to the internet")
-    else:
+if tree == 1:
+    try:
+        print(".*"*30)
+        print("-"*60)
+        username = input("username:--> ")
+        print("-"*60)
+        password = getpass.getpass("Enter Password:--> ")
+        check_login(carryon(log_in('http://172.16.2.254/login')))
+    except:
+        print('network issues')
+elif tree == 2:
+    try:
+        logout("http://172.16.2.254/logout")
+    except:
+        print('are you connected to the internet')
+elif tree == 3:
+    try:
+        print("your remaininig quota is: ")
+        print(pull_quota('http://172.16.2.254/status'))
         b()
-        print("Nigga 1 or 2!!!")
-        b()
-
-main()
+    except:
+        print("Are you connected to the internet")
+else:
+    b()
+    print("Nigga 1 or 2!!!")
+    b()
