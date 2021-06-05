@@ -73,7 +73,8 @@ def sizeof_fmt(num, suffix='B'):
 b()
 tree = int(input('''
 1.) Login
-2.) Logout \n:--> '''))
+2.) Logout
+3.) Status \n:--> '''))
 b()
 
 if tree == 1:
@@ -85,6 +86,10 @@ if tree == 1:
     check_login(carryon(log_in('http://172.16.2.254/login')))
 elif tree == 2:
     logout("http://172.16.2.254/logout")
+elif tree == 3:
+    print("your remaininig quota is: ")
+    print(pull_quota('http://172.16.2.254/status'))
+    b()
 else:
     b()
     print("Nigga 1 or 2!!!")
